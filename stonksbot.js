@@ -8,12 +8,6 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-    if (msg.content.startsWith(`${prefix}ping`)) {
-        msg.reply('pong!');
-    }
-});
-
-client.on('message', msg => {
     if (msg.content.startsWith(`${prefix}stock`)) {
         const args = msg.content.slice(prefix.length).split(' ');
         const command = args.shift().toLowerCase();
@@ -44,9 +38,9 @@ client.on('message', msg => {
         }
     });
 
-client.on('message', msg => {
-    if (msg.content.startsWith(`${prefix}graph`)) {
-        
-    }
-})
+//client.on('message', msg => {
+//    if (msg.content.startsWith(`${prefix}graph`)) {
+
+//    }
+//})
 client.login(token);
