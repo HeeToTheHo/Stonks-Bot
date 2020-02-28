@@ -1,17 +1,24 @@
 {
-    "name": "Stonks Bot",
-    "version": "1.0.0",
-    "description": "Stock Market Discord bot",
-    "main": "stonksbot.js",
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/HeeToTheHo/Stonks-Bot.git"
-    },
-    "author": "HeeToTheHo",
-    "license": "ISC",
-    "dependencies": {
-      "@types/node": "^13.9.0",
-      "discord.js": "^11.5.1",
-      "xhr2": "^0.2.0"
-    }
-  }
+  "name": "stonks-bot",
+  "version": "1.0.0",
+  "description": "Discord Stock Market Bot",
+  "main": "stonksbot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HeeToTheHo/Stonks-Bot.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "stocks"
+  ],
+  "author": "HeeToTheHo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HeeToTheHo/Stonks-Bot/issues"
+  },
+  "homepage": "https://github.com/HeeToTheHo/Stonks-Bot#readme"
+}
