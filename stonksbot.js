@@ -38,9 +38,32 @@ client.on('message', msg => {
         }
     });
 
-//client.on('message', msg => {
-//    if (msg.content.startsWith(`${prefix}graph`)) {
-
-//    }
-//})
+client.on('message', msg => {
+    if (msg.content.startsWith(`${prefix}graph`)) {
+        const args = msg.content.slice(prefix.length).split(' ');
+        const command = args.shift().toLocaleLowerCase();
+        const http = new XMLHttpRequest();
+        const url = `https://cloud.iexapis.com/stable/stock/${args[0]}/batch?types=chart&range=1m&last=10&token=${iexcloudapi}`;
+        http.open("GET", url);
+        http.send();
+        http.onreadystatechange=function() {
+            if (this.readyState==4 && this.status==200) {
+                const jsondata = JSON.parse(`${http.responseText}`);
+                let parsed = jsondata.chart;
+                const http2 = new XMLHttpRequest();
+                const chartcreate = `https://chart.googleapis.com/chart?chs=250x100&chd=t:${parsed}&cht=lc&chl=Hello|World`;
+                http2.open("GET", chartcreate);
+                http2.send();
+                http2.onreadystatechange=function() {
+                    if (this.readyState==4 && this.status==200) {
+                        console.log(http2.responseURL);
+                        msg.channel.send(http2.responseURL);
+                    }
+                }
+                //console.log(http2.responseText);
+                //msg.channel.send(http2.responseText);
+            }
+        }
+    }
+})
 client.login(token);
