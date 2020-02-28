@@ -1,7 +1,6 @@
-    const Discord = require('discord.js');
+const Discord = require('discord.js');
 var XMLHttpRequest = require('xhr2');
 const { prefix, token, iexcloudapi } = require("./config.json");
-//const embed = require("./embed.js");
 const client = new Discord.Client();
 
 client.on('ready', () => {
@@ -33,7 +32,6 @@ client.on('message', msg => {
                         .setColor('#0099ff')
                         .setTitle(`${args[0]}`)
                         .setDescription(`Stock information of: ` + `${args[0]}`)
-                        //.setThumbnail()
                         .addField(`Stock Price: `, `$` + `${price}`)
                         .addField(`Change: `, `${change}` + "%")
                         .addField(`Previous Close: `, `$` + `${lastclose}`)
@@ -43,7 +41,12 @@ client.on('message', msg => {
                 msg.channel.send(embed);
                 }
             }
-    }
-});
+        }
+    });
 
+client.on('message', msg => {
+    if (msg.content.startsWith(`${prefix}graph`)) {
+        
+    }
+})
 client.login(token);
