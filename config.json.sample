@@ -1,0 +1,5 @@
+{
+"token" : "discordbotoken",
+"prefix" : "!",
+"iexcloudapi" : "apikey"
+}
