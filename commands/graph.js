@@ -13,16 +13,21 @@ module.exports = {
                 const jsondata = JSON.parse(`${http.responseText}`);
                 let parser = jsondata.chart;
                 console.log(parser);
-                const http2 = new XMLHttpRequest();
-                const chartcreate = `https://chart.googleapis.com/chart?chs=250x100&chd=t:${parser}&cht=lc&chl=Hello|World|Youre|Sexy`;
-                http2.open("POST", chartcreate);
-                http2.send();
-                http2.onreadystatechange=function() {
-                    if (this.readyState==4 && this.status==200) {
-                        console.log(http2.responseURL);
-                        msg.channel.send(http2.responseURL);
-                    }
-                }
+                var chl = "";
+                var chd = "";
+                var min;
+                var max;
+                dataPoints = parser;
+                dataPoints.forEach(dataPoint => {
+                    chl += dataPoint["label"].replace(" ", "%20") + "|";
+                    chd += dataPoint["close"] + ",";
+                });
+                chl = chl.substring(0, chl.length - 2);
+                chd = chd.substring(0, chd.length - 2);
+                var chartUrl = `https://chart.googleapis.com/chart?chs=1000x300&chd=t:${chd}&cht=lc&chl=${chl}&chds=1300,1600`;
+                
+                console.log(chartUrl);
+                msg.channel.send(chartUrl);
             }
         }
     }
