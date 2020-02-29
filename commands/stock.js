@@ -21,7 +21,7 @@ module.exports = {
                     .setColor('#0099ff')
                     .setTitle(`${args[0]}`)
                     .setDescription(`Stock information of: ` + `${args[0]}`)
-                    .addField(`Company Name: ` + `${companyname}`)
+                    .addField(`Company Name: `, `${companyname}`)
                     .addField(`Stock Price: `, `$` + `${price}`)
                     .addField(`Change: `, `${change}` + "%")
                     .addField(`Previous Close: `, `$` + `${lastclose}`)
