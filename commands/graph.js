@@ -12,7 +12,7 @@ module.exports = {
             if (this.readyState==4 && this.status==200) {
                 const jsondata = JSON.parse(`${http.responseText}`);
                 let parser = jsondata.chart;
-                console.log(parser[3]);
+                console.log(parser);
                 const http2 = new XMLHttpRequest();
                 const chartcreate = `https://chart.googleapis.com/chart?chs=250x100&chd=t:${parser}&cht=lc&chl=Hello|World|Youre|Sexy`;
                 http2.open("POST", chartcreate);
