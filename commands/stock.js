@@ -12,6 +12,7 @@ module.exports = {
         http.onreadystatechange=function(){
             if(this.readyState==4 && this.status==200) {
                 const jsondata = JSON.parse(`${http.responseText}`);
+                let companyname = jsondata.quote.companyName;
                 let price = jsondata.quote.latestPrice;
                 let time = jsondata.quote.latestTime;
                 let change = jsondata.quote.change;
@@ -20,6 +21,7 @@ module.exports = {
                     .setColor('#0099ff')
                     .setTitle(`${args[0]}`)
                     .setDescription(`Stock information of: ` + `${args[0]}`)
+                    .addField(`Company Name: ` + `${companyname}`)
                     .addField(`Stock Price: `, `$` + `${price}`)
                     .addField(`Change: `, `${change}` + "%")
                     .addField(`Previous Close: `, `$` + `${lastclose}`)
