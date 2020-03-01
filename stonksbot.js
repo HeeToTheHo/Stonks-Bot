@@ -54,4 +54,11 @@ client.on('message', msg => {
         client.commands.get(command).execute(msg, args);
     }
 });
+client.on('message', msg => {
+    if (msg.content.startsWith(`${prefix}source`)) {
+        const args = msg.content.slice(prefix.length).split(' ');
+        const command = args.shift().toLowerCase();
+        client.commands.get(command).execute(msg, args);
+    }
+});
 client.login(token);

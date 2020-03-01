@@ -11,6 +11,7 @@ module.exports = {
             .addField(`!stock [arg]`, `Returns the stock information for the provided ticker.`)
             .addField(`!graph [arg]`, `Returns a graph with the past 10 days closure information for the provided ticker.`)
             .addField(`!apistatus`, `View the current API status for the data provider.`)
+            .addField(`!source`, `View the source code for this bot.`)
             .addField(`!help`, `View this command.`)
             .setTimestamp()
             .setFooter(`Data provided by https://iexcloud.io/`)
